@@ -1,88 +1,104 @@
-# 🏗 Scaffold-ETH 2
+![image](https://github.com/user-attachments/assets/f5c00f35-86ef-47fc-b3dd-b3dec908affa)# 🖼 SimpleNFT Marketplace
 
-<h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
-</h4>
+Простой NFT-магазин, разработанный на базе Scaffold-ETH 2. Проект включает смарт-контракт ERC-721 с функциями минта, выставления на продажу и покупки NFT, а также веб-интерфейс на Next.js.
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+## 🚀 Возможности
 
-⚙️ Built using NextJS, RainbowKit, Foundry/Hardhat, Wagmi, Viem, and Typescript.
+- Контракт SimpleNFT (ERC-721 + Ownable + Listings)
+- Только владелец контракта может минтить NFT
+- Владельцы токенов могут выставлять их на продажу
+- Любой пользователь может купить NFT, отправив ETH
+- Интерфейс с кнопками Mint, List, Buy
+- Интеграция с Scaffold-ETH 2: burner-кошельки, хуки, дебаг-панель
 
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
+## 🖼 Интерфейс
 
-![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
+Добавьте сюда скриншот интерфейса с главной страницы http://localhost:3000, где видно список токенов и кнопки.
 
-## Requirements
+Пример:
+![image](https://github.com/user-attachments/assets/39d3d771-9de8-4640-b0ac-6fdfc4ef7844)
 
-Before you begin, you need to install the following tools:
+![image](https://github.com/user-attachments/assets/f43edc00-64d5-4980-9ebb-6819001d1a7b)
 
-- [Node (>= v20.18.3)](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-- [Git](https://git-scm.com/downloads)
 
-## Quickstart
+## 📋 Установка
 
-To get started with Scaffold-ETH 2, follow the steps below:
+Склонируйте проект и установите зависимости:
 
-1. Install the latest version of Scaffold-ETH 2
+git clone https://github.com/your-name/nft-marketplace.git  
+cd nft-marketplace  
+yarn install
 
-```
-npx create-eth@latest
-```
+Если используется Yarn 3+, убедитесь, что включён Corepack:
 
-This command will install all the necessary packages and dependencies, so it might take a while.
+corepack enable  
+corepack prepare yarn@3.2.3 --activate  
+yarn install
 
-> [!NOTE]
-> You can also initialize your project with one of our extensions to add specific features or starter-kits. Learn more in our [extensions documentation](https://docs.scaffoldeth.io/extensions/).
+## ▶️ Запуск проекта
 
-2. Run a local network in the first terminal:
+Откройте 3 терминала в корне проекта:
 
-```
+1. Локальная сеть Hardhat:
+
 yarn chain
-```
 
-This command starts a local Ethereum network that runs on your local machine and can be used for testing and development. Learn how to [customize your network configuration](https://docs.scaffoldeth.io/quick-start/environment#1-initialize-a-local-blockchain).
+2. Деплой контракта:
 
-3. On a second terminal, deploy the test contract:
-
-```
 yarn deploy
-```
 
-This command deploys a test smart contract to the local network. You can find more information about how to customize your contract and deployment script in our [documentation](https://docs.scaffoldeth.io/quick-start/environment#2-deploy-your-smart-contract).
+3. Запуск фронтенда:
 
-4. On a third terminal, start your NextJS app:
-
-```
 yarn start
-```
 
-Visit your app on: `http://localhost:3000`. You can interact with your smart contract using the `Debug Contracts` page. You can tweak the app config in `packages/nextjs/scaffold.config.ts`.
+После запуска откройте в браузере http://localhost:3000
 
-**What's next**:
+## 🛠 Структура проекта
 
-Visit the [What's next section of our docs](https://docs.scaffoldeth.io/quick-start/environment#whats-next) to learn how to:
+packages/  
+├── hardhat/ — Контракты и деплой  
+│   └── contracts/SimpleNFT.sol  
+│   └── deploy/00_deploy_simple_nft.ts  
+├── nextjs/ — Интерфейс  
+│   └── app/page.tsx
 
-- Edit your smart contracts
-- Edit your deployment scripts
-- Customize your frontend
-- Edit the app config
-- Writing and running tests
-- [Setting up external services and API keys](https://docs.scaffoldeth.io/deploying/deploy-smart-contracts#configuration-of-third-party-services-for-production-grade-apps)
+## 💡 Контракт SimpleNFT.sol
 
-## Documentation
+Контракт написан на Solidity и использует OpenZeppelin. Содержит:
 
-Visit our [docs](https://docs.scaffoldeth.io) to learn all the technical details and guides of Scaffold-ETH 2.
+- safeMint(address) — минт NFT (только для owner)
+- listItem(tokenId, price) — выставление токена на продажу
+- buyItem(tokenId) — покупка токена
+- listings[tokenId] — отображает цену выставленного токена
 
-To know more about its features, check out our [website](https://scaffoldeth.io).
+Добавьте сюда скриншот из вкладки Debug Contracts Scaffold-ETH с открытым контрактом SimpleNFT:
 
-## Contributing to Scaffold-ETH 2
+![image](https://github.com/user-attachments/assets/a70d2026-fbb1-4462-8beb-63e4e4b60e59)
 
-We welcome contributions to Scaffold-ETH 2!
 
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
+## 🧪 Как протестировать
+
+1. Перейдите на http://localhost:3000
+2. Нажмите кнопку Mint NFT (доступна только владельцу контракта)
+3. После минта NFT появится в списке
+4. Введите цену и нажмите «Выставить на продажу»
+5. Переключитесь на другой кошелёк через Burner Wallet
+6. Нажмите кнопку «Купить» для покупки NFT
+7. Проверьте, что NFT сменил владельца, а ETH переведены продавцу
+
+Добавьте скриншот с токеном, выставленным на продажу, или с успешной покупкой:
+
+![image](https://github.com/user-attachments/assets/ad38bec7-3dc2-4247-93fc-69a38cca92b2)
+
+![image](https://github.com/user-attachments/assets/71f2ede4-c2a8-4c24-95a7-04dd84953d3e)
+
+## 📦 Зависимости
+
+- Scaffold-ETH 2  
+- Solidity / Hardhat / OpenZeppelin  
+- React / Next.js App Router  
+- Ethers.js / Wagmi / Viem
+
+## 🧑‍💻 Автор
+
+Проект создан в рамках учебного курса. Основан на Scaffold-ETH 2 с индивидуальной логикой и фронтендом.
