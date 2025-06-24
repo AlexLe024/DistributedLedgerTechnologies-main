@@ -13,8 +13,6 @@
 
 ## 🖼 Интерфейс
 
-Добавьте сюда скриншот интерфейса с главной страницы http://localhost:3000, где видно список токенов и кнопки.
-
 Пример:
 ![image](https://github.com/user-attachments/assets/39d3d771-9de8-4640-b0ac-6fdfc4ef7844)
 
@@ -25,8 +23,8 @@
 
 Склонируйте проект и установите зависимости:
 
-git clone https://github.com/your-name/nft-marketplace.git  
-cd nft-marketplace  
+git clone [https://github.com/your-name/nft-marketplace.git  ](https://github.com/AlexLe024/DistributedLedgerTechnologies-main)
+cd DistributedLedgerTehnologies-main  
 yarn install
 
 Если используется Yarn 3+, убедитесь, что включён Corepack:
@@ -71,7 +69,6 @@ packages/
 - buyItem(tokenId) — покупка токена
 - listings[tokenId] — отображает цену выставленного токена
 
-Добавьте сюда скриншот из вкладки Debug Contracts Scaffold-ETH с открытым контрактом SimpleNFT:
 
 ![image](https://github.com/user-attachments/assets/a70d2026-fbb1-4462-8beb-63e4e4b60e59)
 
@@ -86,7 +83,6 @@ packages/
 6. Нажмите кнопку «Купить» для покупки NFT
 7. Проверьте, что NFT сменил владельца, а ETH переведены продавцу
 
-Добавьте скриншот с токеном, выставленным на продажу, или с успешной покупкой:
 
 ![image](https://github.com/user-attachments/assets/ad38bec7-3dc2-4247-93fc-69a38cca92b2)
 
